@@ -1,0 +1,53 @@
+# In2AI / MindGames first-place RL defaults (Qwen3-8B backbone)
+
+base_model: Qwen/Qwen3-8B
+load_in_4bit: true
+adapter_path: null  # optional SFT warm-start: lora/runs/<id>/
+
+rollout:
+  n_episodes: 64
+  n_workers: 4
+  seed: 42
+  max_new_tokens: 384
+
+grpo:
+  num_generations: 4
+  learning_rate: 1.0e-5
+  num_train_epochs: 1
+  per_device_train_batch_size: 1
+  gradient_accumulation_steps: 4
+  max_completion_length: 256
+  beta: 0.04  # KL penalty
+
+credit:
+  gamma: 0.95
+  method: monte_carlo  # monte_carlo | uniform | last_step
+
+reward_norm:
+  method: zscore  # zscore | none | fixed
+  clip: 3.0
+
+games:
+  blotto:
+    round_win: 1.0
+    round_loss: -1.0
+    match_win: 5.0
+    match_loss: -5.0
+    invalid_action: -2.0
+  ipd:
+    score_scale: 15.0  # max ~15 per round (3 pairs * T=5)
+    match_win_bonus: 3.0
+    invalid_action: -2.0
+  codenames:
+    team_word: 1.0
+    wrong_team: -1.0
+    neutral: -0.5
+    assassin: -5.0
+    invalid_action: -2.0
+  mafia:
+    correct_vote: 1.0
+    wrong_vote: -1.0
+    neutral_vote: 0.0
+    match_win: 5.0
+    match_loss: -5.0
+    invalid_action: -2.0

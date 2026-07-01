@@ -1,0 +1,18 @@
+{
+  "input": {
+    "game_state": {
+      "game": "Codenames",
+      "self_id": "P0|P1|P2|P3",
+      "role": "spymaster|operative",
+      "team": "red|blue",
+      "board": [{"word": "str", "revealed": "bool"}],
+      "current_clue": "[word n]"
+    },
+    "task": "Give clue or guess."
+  },
+  "output": {
+    "belief": {},
+    "reasoning": "brief explanation",
+    "action": {"clue": "[word n]"} 
+  }
+}

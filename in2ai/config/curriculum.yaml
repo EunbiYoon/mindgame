@@ -1,0 +1,35 @@
+# Curriculum-based opponent selection (easy → hard)
+
+stages:
+  - name: easy
+    min_episodes: 0
+    blotto:
+      strategies: [uniform, balanced]
+    ipd:
+      strategies: [always_cooperate, random]
+    codenames:
+      opponent_skill: random
+    mafia:
+      skills: [naive, heuristic]
+
+  - name: medium
+    min_episodes: 32
+    blotto:
+      strategies: [balanced, field_focus, cyclic]
+    ipd:
+      strategies: [tit_for_tat, random, always_cooperate]
+    codenames:
+      opponent_skill: heuristic
+    mafia:
+      skills: [heuristic]
+
+  - name: hard
+    min_episodes: 128
+    blotto:
+      strategies: [reactive, field_focus, cyclic, balanced]
+    ipd:
+      strategies: [grim_trigger, tit_for_tat, always_defect]
+    codenames:
+      opponent_skill: strong
+    mafia:
+      skills: [heuristic, strong]

@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local env (keep template)
+.env
+!.env.example
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+
+# Logs
+*.log
+
+# Caches & large artifacts
+games/.cache/
+mgc2025_sft/data/cache/
+**/.cache/
+*.safetensors
+checkpoint-*/
+
+# Run outputs — keep runs/README.md only
+runs/*
+!runs/README.md
+**/runs/**
+!runs/README.md
+
+# Runtime pointers
+**/latest.json
+games/*.jsonl

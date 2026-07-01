@@ -1,0 +1,19 @@
+{
+  "input": {
+    "game_state": {
+      "day": "int",
+      "alive": ["player_id"],
+      "dead": ["player_id"],
+      "public_chat": [{"speaker": "player_id", "text": "str"}],
+      "vote_history": [{"day": "int", "votes": {"player_id": "player_id"}}],
+      "claims": {"player_id": "claimed_role"}
+    },
+    "private_info": {"self_id": "player_id", "self_role": "Mafia|Detective|Doctor|Citizen"},
+    "task": "Infer likely mafia and choose the next speech and vote."
+  },
+  "output": {
+    "belief": {"player_id": {"mafia": "float"}},
+    "reasoning": "brief explanation",
+    "action": {"speak": "str", "vote": "player_id"}
+  }
+}

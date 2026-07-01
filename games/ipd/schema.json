@@ -1,0 +1,19 @@
+{
+  "input": {
+    "game_state": {
+      "game": "Three-Player Iterated Prisoner's Dilemma",
+      "self_id": "P0|P1|P2",
+      "round": "int",
+      "phase": "communication|decision",
+      "scores": {"P0": "int", "P1": "int", "P2": "int"},
+      "round_history": [],
+      "public_chat": {"P0": "str", "P1": "str", "P2": "str"}
+    },
+    "task": "Communicate or choose [cooperate]/[defect]."
+  },
+  "output": {
+    "belief": {"P1": {"cooperate": "float", "defect": "float"}},
+    "reasoning": "brief explanation",
+    "action": {"message": "str"} 
+  }
+}

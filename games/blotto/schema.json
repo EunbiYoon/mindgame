@@ -1,0 +1,20 @@
+{
+  "input": {
+    "game_state": {
+      "game": "Colonel Blotto",
+      "round": "int",
+      "round_history": [],
+      "fields": ["A", "B", "C"],
+      "units_per_round": 20
+    },
+    "task": "Model the opponent from past allocations and choose this round's allocation."
+  },
+  "output": {
+    "belief": {
+      "opponent_field_preference": {"A": "float", "B": "float", "C": "float"},
+      "opponent_style": "str"
+    },
+    "reasoning": "brief explanation",
+    "action": {"allocation": "[Ax By Cz]"}
+  }
+}
