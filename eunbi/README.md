@@ -5,6 +5,12 @@ Used by `mgc2025_sft` and `rlgaming`.
 
 ```text
 eunbi/
+├── lib.sh
+├── run_game.sh            # train + eval (one game)
+├── run_{game}.sh          # blotto / mafia / ipd / codenames
+├── run_all.sh
+├── run_smoke.sh
+├── data/runs/<RUN_ID>/    # auto-generated train/test jsonl (gitignored)
 ├── lora/
 │   ├── train_lora.py      # LoRA SFT training
 │   └── runs/<RUN_ID>/     # adapters (gitignored)
@@ -39,11 +45,19 @@ python eunbi/eval/evaluate_mafia.py \
 
 Omit `--model_dir` to use the latest run from `eunbi/lora/latest.json`.
 
-## Train & eval
+## Train & eval (one command)
 
 ```bash
-bash mgc2025_sft/run_blotto.sh
-bash rlgaming/run_blotto.sh
+# 데이터 없으면 자동 생성 (games/*/generate_sft.py) → train → eval
+bash eunbi/run_blotto.sh
+
+# MGC 데이터 쓰려면:
+EUNBI_DATA_SOURCE=mgc bash eunbi/run_blotto.sh
+
+# 빠른 스모크:
+bash eunbi/run_smoke.sh
 ```
 
-See [README.md](../README.md) for per-module commands.
+Swap `run_blotto.sh` for `run_mafia.sh` / `run_ipd.sh` / `run_codenames.sh`, or use `bash eunbi/run_all.sh` for all four.
+
+Full pipelines (data prep + above): `bash mgc2025_sft/run_*.sh` or `bash rlgaming/run_*.sh` — see [README.md](../README.md).

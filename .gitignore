@@ -27,7 +27,7 @@ checkpoint-*/
 previous_result/*
 !previous_result/README.md
 eunbi/lora/runs/
-eunbi/eval/runs/
+eunbi/data/runs/
 **/runs/**
 
 # Runtime pointers
