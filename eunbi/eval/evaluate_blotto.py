@@ -5,24 +5,24 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from eval.blotto_match import run_blotto_matches
-from eval.mindgames_tables import (
+from eunbi.eval.blotto_match import run_blotto_matches
+from eunbi.eval.mindgames_tables import (
     table12_blotto_row,
     table5_error_row,
     write_result_md,
     write_tables,
 )
-from eval.model_utils import generate_text, load_model_and_tokenizer
+from eunbi.eval.model_utils import generate_text, load_model_and_tokenizer
 from run_paths import EVAL_DIR, LORA_DIR, new_eval_run_dir, read_latest_path, write_latest_pointer
 
 
 def main():
     ap = argparse.ArgumentParser(description="Colonel Blotto eval (MindGames Table 12 / Table 5 format)")
-    ap.add_argument("--model_dir", default=None, help="Default: lora/latest.json")
+    ap.add_argument("--model_dir", default=None, help="Default: eunbi/lora/latest.json")
     ap.add_argument("--n_games", type=int, default=30, help="Full matches to play (paper qualification: >=30)")
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--model_name", default=None, help="Label in results table")
@@ -33,7 +33,7 @@ def main():
     if args.model_dir is None:
         latest = read_latest_path(LORA_DIR)
         if latest is None:
-            raise SystemExit("No --model_dir and no lora/latest.json. Train LoRA first.")
+            raise SystemExit("No --model_dir and no eunbi/lora/latest.json. Train LoRA first.")
         args.model_dir = str(latest)
 
     model_dir = Path(args.model_dir)

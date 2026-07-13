@@ -61,8 +61,8 @@ info = {
     "test_file": "${test_file}",
     "mgc_data_dir": "${MGC_DATA_DIR}",
     "max_trajectories": int("${MGC_MAX_TRAJ}"),
-    "lora_dir": "lora/runs/${RUN_ID}",
-    "eval_dir": "eval/runs/${RUN_ID}",
+    "lora_dir": "eunbi/lora/runs/${RUN_ID}",
+    "eval_dir": "eunbi/eval/runs/${RUN_ID}",
 }
 with open("${MGC_DATA_DIR}/run_info.json", "w", encoding="utf-8") as f:
     json.dump(info, f, indent=2)

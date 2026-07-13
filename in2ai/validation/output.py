@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from eval.metrics import (  # noqa: E402
+from eunbi.eval.metrics import (  # noqa: E402
     blotto_allocation_valid,
     codenames_action_valid,
     extract_json,

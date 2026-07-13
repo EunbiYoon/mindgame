@@ -7,7 +7,7 @@ import random
 from dataclasses import dataclass, field
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 import importlib.util
 
 _spec = importlib.util.spec_from_file_location("blotto_engine", ROOT / "games" / "blotto" / "engine.py")
@@ -66,7 +66,7 @@ def build_blotto_prompt(
 
 
 def parse_model_allocation(text: str) -> dict[str, int] | None:
-    from eval.metrics import extract_json
+    from eunbi.eval.metrics import extract_json
 
     obj = extract_json(text)
     if isinstance(obj, dict):

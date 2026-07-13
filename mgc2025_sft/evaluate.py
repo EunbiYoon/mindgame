@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from eval.model_utils import generate_text, load_model_and_tokenizer  # noqa: E402
+from eunbi.eval.model_utils import generate_text, load_model_and_tokenizer  # noqa: E402
 from mgc2025_sft.lib import GAMES, action_contains_match, action_exact_match  # noqa: E402
 from run_paths import EVAL_DIR, LORA_DIR, new_eval_run_dir, read_latest_path, write_latest_pointer  # noqa: E402
 
@@ -33,7 +33,7 @@ def main() -> None:
     if args.model_dir is None:
         latest = read_latest_path(LORA_DIR)
         if latest is None:
-            raise SystemExit("No --model_dir and no lora/latest.json")
+            raise SystemExit("No --model_dir and no eunbi/lora/latest.json")
         args.model_dir = str(latest)
 
     if args.out is None:

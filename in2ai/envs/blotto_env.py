@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from eval.blotto_match import (  # noqa: E402
+from eunbi.eval.blotto_match import (  # noqa: E402
     MAX_ROUNDS,
     UNITS,
     WIN_ROUNDS,
@@ -113,7 +113,7 @@ class BlottoEnv(GameEnv):
         outcome = resolve_round(alloc, opp_alloc)
         step.raw_reward = blotto_step_reward(outcome, **self._step_kw())
 
-        from eval.blotto_match import format_allocation  # noqa: E402
+        from eunbi.eval.blotto_match import format_allocation  # noqa: E402
 
         self.round_history.append(
             {

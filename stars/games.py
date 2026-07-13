@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any, Callable
 
-from eval.metrics import (
+from eunbi.eval.metrics import (
     blotto_allocation_match,
     blotto_allocation_valid,
     codenames_action_match,

@@ -11,7 +11,7 @@ maf_train_lora_extra_args
 
 mgc_convert_game codenames
 
-python lora/train_lora.py \
+python eunbi/lora/train_lora.py \
   --train_file "${MGC_DATA_DIR}/codenames_train.jsonl" \
   --run_id "${RUN_ID}" \
   "${TRAIN_LORA_EXTRA[@]}" \
@@ -20,7 +20,7 @@ python lora/train_lora.py \
 python mgc2025_sft/evaluate.py \
   --game codenames \
   --run_id "${RUN_ID}" \
-  --model_dir "lora/runs/${RUN_ID}" \
+  --model_dir "eunbi/lora/runs/${RUN_ID}" \
   --test_file "${MGC_DATA_DIR}/codenames_test.jsonl" \
   --n "${MGC_EVAL_N}"
 

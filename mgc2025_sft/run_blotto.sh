@@ -11,7 +11,7 @@ maf_train_lora_extra_args
 
 mgc_convert_game blotto
 
-python lora/train_lora.py \
+python eunbi/lora/train_lora.py \
   --train_file "${MGC_DATA_DIR}/blotto_train.jsonl" \
   --run_id "${RUN_ID}" \
   "${TRAIN_LORA_EXTRA[@]}" \
@@ -20,13 +20,13 @@ python lora/train_lora.py \
 python mgc2025_sft/evaluate.py \
   --game blotto \
   --run_id "${RUN_ID}" \
-  --model_dir "lora/runs/${RUN_ID}" \
+  --model_dir "eunbi/lora/runs/${RUN_ID}" \
   --test_file "${MGC_DATA_DIR}/blotto_test.jsonl" \
   --n "${MGC_EVAL_N}"
 
-python eval/evaluate_blotto.py \
+python eunbi/eval/evaluate_blotto.py \
   --run_id "${RUN_ID}" \
-  --model_dir "lora/runs/${RUN_ID}" \
+  --model_dir "eunbi/lora/runs/${RUN_ID}" \
   --n_games 30
 
 mgc_write_run_info "Colonel Blotto" "${MGC_DATA_DIR}/blotto_train.jsonl" "${MGC_DATA_DIR}/blotto_test.jsonl"

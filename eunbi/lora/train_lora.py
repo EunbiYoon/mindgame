@@ -12,7 +12,7 @@ from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 from trl import SFTConfig, SFTTrainer
 import torch
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
@@ -27,7 +27,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--train_file", default="games/mafia/sft.jsonl")
     ap.add_argument("--base_model", default="Qwen/Qwen3-8B")
-    ap.add_argument("--out_dir", default=None, help="Default: lora/runs/<timestamp>/")
+    ap.add_argument("--out_dir", default=None, help="Default: eunbi/lora/runs/<timestamp>/")
     ap.add_argument("--run_id", default=None, help="Run folder name (default: RUN_ID env or UTC timestamp)")
     ap.add_argument("--epochs", type=float, default=1)
     ap.add_argument("--lr", type=float, default=2e-4)

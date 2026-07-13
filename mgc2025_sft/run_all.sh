@@ -25,7 +25,7 @@ for game in mafia blotto ipd codenames; do
   echo "=== MGC2025: train + eval ${game} (RUN_ID=${RUN_ID}) ==="
   rid="${RUN_ID}_${game}"
 
-  python lora/train_lora.py \
+  python eunbi/lora/train_lora.py \
     --train_file "${train}" \
     --run_id "${rid}" \
     "${TRAIN_LORA_EXTRA[@]}" \
@@ -34,14 +34,14 @@ for game in mafia blotto ipd codenames; do
   python mgc2025_sft/evaluate.py \
     --game "${game}" \
     --run_id "${rid}" \
-    --model_dir "lora/runs/${rid}" \
+    --model_dir "eunbi/lora/runs/${rid}" \
     --test_file "${test}" \
     --n "${MGC_EVAL_N}"
 
   if [[ "${game}" == "blotto" ]]; then
-    python eval/evaluate_blotto.py \
+    python eunbi/eval/evaluate_blotto.py \
       --run_id "${rid}" \
-      --model_dir "lora/runs/${rid}" \
+      --model_dir "eunbi/lora/runs/${rid}" \
       --n_games 30
   fi
 done
@@ -68,5 +68,5 @@ PY
 echo
 echo "MGC2025 full pipeline complete."
 echo "  data:  ${MGC_DATA_DIR}"
-echo "  lora:  lora/runs/${RUN_ID}_<game>"
-echo "  eval:  eval/runs/${RUN_ID}_<game>"
+echo "  lora:  eunbi/lora/runs/${RUN_ID}_<game>"
+echo "  eval:  eunbi/eval/runs/${RUN_ID}_<game>"

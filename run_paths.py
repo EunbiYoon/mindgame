@@ -1,4 +1,4 @@
-"""Run output dirs: games/runs/<id>/, lora/runs/<id>/, eval/runs/<id>/."""
+"""Run output dirs: eunbi/lora/runs/<id>/, eunbi/eval/runs/<id>/."""
 
 from __future__ import annotations
 
@@ -10,9 +10,9 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent
 GAME_DIR = PROJECT_ROOT / "games"
 DATA_RUNS_DIR = GAME_DIR / "runs"
-LORA_DIR = PROJECT_ROOT / "lora"
+LORA_DIR = PROJECT_ROOT / "eunbi" / "lora"
 LORA_RUNS_DIR = LORA_DIR / "runs"
-EVAL_DIR = PROJECT_ROOT / "eval"
+EVAL_DIR = PROJECT_ROOT / "eunbi" / "eval"
 EVAL_RUNS_DIR = EVAL_DIR / "runs"
 
 

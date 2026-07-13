@@ -32,8 +32,8 @@ if [[ "${MGC_SMOKE_CONVERT_ONLY:-0}" == "1" ]]; then
   exit 0
 fi
 
-echo "=== train LoRA → lora/runs/${RUN_ID} ==="
-python lora/train_lora.py \
+echo "=== train LoRA → eunbi/lora/runs/${RUN_ID} ==="
+python eunbi/lora/train_lora.py \
   --train_file "${train}" \
   --run_id "${RUN_ID}" \
   "${TRAIN_LORA_EXTRA[@]}" \
@@ -43,7 +43,7 @@ echo "=== eval ==="
 python mgc2025_sft/evaluate.py \
   --game "${MGC_SMOKE_GAME}" \
   --run_id "${RUN_ID}" \
-  --model_dir "lora/runs/${RUN_ID}" \
+  --model_dir "eunbi/lora/runs/${RUN_ID}" \
   --test_file "${test}" \
   --n "${MGC_EVAL_N}"
 
@@ -52,5 +52,5 @@ mgc_write_run_info "smoke:${MGC_SMOKE_GAME}" "${train}" "${test}"
 echo
 echo "MGC2025 smoke complete."
 echo "  data:  ${MGC_DATA_DIR}"
-echo "  lora:  lora/runs/${RUN_ID}"
-echo "  eval:  eval/runs/${RUN_ID}/metrics_mgc_${MGC_SMOKE_GAME}.json"
+echo "  lora:  eunbi/lora/runs/${RUN_ID}"
+echo "  eval:  eunbi/eval/runs/${RUN_ID}/metrics_mgc_${MGC_SMOKE_GAME}.json"

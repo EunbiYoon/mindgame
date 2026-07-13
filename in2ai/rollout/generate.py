@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from eval.model_utils import generate_text, load_model_and_tokenizer  # noqa: E402
+from eunbi.eval.model_utils import generate_text, load_model_and_tokenizer  # noqa: E402
 from hf_cache import ensure_hf_cache  # noqa: E402
 from in2ai.credit.delayed import assign_credit  # noqa: E402
 from in2ai.envs.blotto_env import BlottoEnv, run_episode as run_blotto  # noqa: E402

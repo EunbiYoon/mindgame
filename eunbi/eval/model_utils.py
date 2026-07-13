@@ -1,4 +1,4 @@
-"""Load LoRA checkpoints saved under lora/runs/<id>/ or HuggingFace hub ids."""
+"""Load LoRA checkpoints saved under eunbi/lora/runs/<id>/ or HuggingFace hub ids."""
 
 from __future__ import annotations
 

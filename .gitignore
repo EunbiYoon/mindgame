@@ -23,11 +23,12 @@ mgc2025_sft/data/cache/
 *.safetensors
 checkpoint-*/
 
-# Run outputs — keep runs/README.md only
-runs/*
-!runs/README.md
+# Run outputs
+previous_result/*
+!previous_result/README.md
+eunbi/lora/runs/
+eunbi/eval/runs/
 **/runs/**
-!runs/README.md
 
 # Runtime pointers
 **/latest.json

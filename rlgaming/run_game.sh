@@ -34,7 +34,7 @@ python rlgaming/data/generate_sft.py \
   --mgc_weight "${RLG_MGC_WEIGHT}" \
   "${FILTER_ARGS[@]}"
 
-python lora/train_lora.py \
+python eunbi/lora/train_lora.py \
   --train_file "${RUN_DIR}/${GAME}_train.jsonl" \
   --out_dir "${RUN_DIR}/lora" \
   --run_id "${RUN_ID}" \

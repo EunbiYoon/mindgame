@@ -9,7 +9,7 @@ from contextlib import redirect_stdout
 from dataclasses import dataclass, field
 from typing import Any
 
-from eval.metrics import extract_json
+from eunbi.eval.metrics import extract_json
 from games.blotto.engine import is_valid_allocation, parse_allocation
 from games.codenames.engine import is_valid_clue, parse_clue, parse_guess
 from games.ipd.engine import parse_choice
